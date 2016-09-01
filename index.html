@@ -4,147 +4,163 @@
 <head>
     <title>Show Diary</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body id="mytheme">
-	<header class="ui clearfix box fixed menu header-style">
-		<hi class="ui large header float--left box main-logo">Show Diary</hi>
-		<nav class="ui box right aligned clearfix nav-header">
-			<button class="ui button float-right"><a href="#">About</button>
-			<button class="ui button float-right">My Diary</button>
-			<div class="ui search">
-			  <div class="ui icon input">
-			    <input class="prompt" type="text" placeholder="Search Shows">
-			    <i class="search icon"></i>
-			  </div>
-			  <div class="results"></div>
-			</div>
-			<div class="ui breadcrumb nav-link">
-			  <a class="section">Sign Up</a>
-			  <div class="divider"> / </div>
-			  <a class="section">Log In</a>
-			 </div>
-		</nav>
-	</header>
-  <!-- Currently watching shows -->
-<section class='current-container ui grid'> 	
-	<div class="ui card">
-    <div class="image">
-    <img src="assets/Bob's_Burgers_(season_6).png">
-    </div>
-    <div class="content">
-    <div class="header">Bob's Burgers</div>
-    <div class="description">
-      Brief Description goes here
-    </div>
-    </div>
-    <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <i class="add icon"></i>
-      Queue
-    </div>
-    <div class="ui compact menu">
-  <div class="ui simple dropdown item">
-  <i class="play icon"></i>
-    Episode List
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item ">Season 1</div>
-      <div class="item">Season 2</div>
-      <div class="item">Season 3</div>
-    </div>
-  </div>
-</div>
-   
-  </div>
-</div>
-  <div class="ui card">
-  <div class="image">
-    <img src="assets/Bob's_Burgers_(season_6).png">
-  </div>
-  <div class="content">
-    <div class="header">Bob's Burgers</div>
-    <div class="description">
-      Brief Description goes here
-    </div>
-  </div>
-  <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <i class="add icon"></i>
-      Queue
-    </div>
-    <div class="ui primary button">
-      <i class="play icon"></i>
-      Watch
-    </div>
-  </div>
-</div>
-  <div class="ui card">
-  <div class="image">
-    <img src="assets/Bob's_Burgers_(season_6).png">
-  </div>
-  <div class="content">
-    <div class="header">Bob's Burgers</div>
-    <div class="description">
-      Brief Description goes here
-    </div>
-  </div>
-  <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <i class="add icon"></i>
-      Queue
-    </div>
-    <div class="ui primary button">
-      <i class="play icon"></i>
-      Watch
-    </div>
-  </div>
-</div>
-  <div class="ui card">
-  <div class="image">
-    <img src="assets/Bob's_Burgers_(season_6).png">
-  </div>
-  <div class="content">
-    <div class="header">Bob's Burgers</div>
-    <div class="description">
-      Brief Description goes here
-    </div>
-  </div>
-  <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <i class="add icon"></i>
-      Queue
-    </div>
-    <div class="ui primary button">
-      <i class="play icon"></i>
-      Watch
-    </div>
-  </div>
-</div>
-
-</section>
-<section class='slide-wrapper center saved-container'>
-	 <div class="content">
-    <div class="header">Watchmen</div>
-    <div class="description">
-      
-    </div>
-  </div>
-  <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <i class="add icon"></i>
-      Queue
-    </div>
-    <div class="ui primary button">
-      <i class="play icon"></i>
-      Watch
-    </div>
-  </div>
-</div>
-
-</section>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  <script type="scripts/main.js"></script>
+    <header class="ui clearfix box fixed menu header-style">
+        <hi class="ui large header float--left box main-logo">Show Diary</hi>
+        <nav class="ui box right aligned clearfix nav-header">
+            <button class="ui button float-right"><a href="#">About</button>
+      <button class="ui button float-right">My Diary</button>
+      <div class="ui search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search Shows">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+      <div class="ui breadcrumb nav-link">
+        <a class="section">Sign Up</a>
+                <div class="divider"> / </div>
+                <a class="section">Log In</a>
+                </div>
+        </nav>
+    </header>
+    <!-- Currently watching shows -->
+    <section class='current-container ui grid'>
+        <div class="ui card">
+            <div class="image">
+                <img src="assets/Bob's_Burgers_(season_6).png">
+            </div>
+            <div class="content">
+                <div class="header">Bob's Burgers</div>
+                <div class="description">
+                    Brief Description goes here
+                </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+                <div class="ui button">
+                    <i class="add icon"></i> Queue
+                </div>
+                <div class="ui compact menu">
+                    <div class="ui simple dropdown item">
+                        <i class="play icon"></i> Episode List
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item ">Season 1</div>
+                            <div class="item">Season 2</div>
+                            <div class="item">Season 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui card">
+            <div class="image">
+                <img src="assets/gilmore-girls-main-250x250.jpg">
+            </div>
+            <div class="content">
+                <div class="header">Gilmore Girls</div>
+                <div class="description">
+                    Brief Description goes here
+                </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+                <div class="ui button">
+                    <i class="add icon"></i> Queue
+                </div>
+                <div class="ui compact menu">
+                    <div class="ui simple dropdown item">
+                        <i class="play icon"></i> Episode List
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item">Season 1</div>
+                            <div class="item">Season 2</div>
+                            <div class="item">Season 3</div>
+                            <div class="item">Season 4</div>
+                            <div class="item">Season 5</div>
+                            <div class="item">Season 6</div>
+                            <div class="item">Season 7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui card">
+            <div class="image">
+                <img src="assets/Bob's_Burgers_(season_6).png">
+            </div>
+            <div class="content">
+                <div class="header">Bob's Burgers</div>
+                <div class="description">
+                    Brief Description goes here
+                </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+                <div class="ui button">
+                    <i class="add icon"></i> Queue
+                </div>
+                <div class="ui compact menu">
+                    <div class="ui simple dropdown item">
+                        <i class="play icon"></i> Episode List
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item ">Season 1</div>
+                            <div class="item">Season 2</div>
+                            <div class="item">Season 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui card">
+            <div class="image">
+                <img src="assets/Bob's_Burgers_(season_6).png">
+            </div>
+            <div class="content">
+                <div class="header">Bob's Burgers</div>
+                <div class="description">
+                    Brief Description goes here
+                </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+                <div class="ui button">
+                    <i class="add icon"></i> Queue
+                </div>
+                <div class="ui compact menu">
+                    <div class="ui simple dropdown item">
+                        <i class="play icon"></i> Episode List
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item ">Season 1</div>
+                            <div class="item">Season 2</div>
+                            <div class="item">Season 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='slide-wrapper center saved-container'>
+        <div class="content">
+            <div class="header">Watchmen</div>
+            <div class="description">
+            </div>
+        </div>
+        <div class="ui two bottom attached buttons">
+            <div class="ui button">
+                <i class="add icon"></i> Queue
+            </div>
+            <div class="ui primary button">
+                <i class="play icon"></i> Watch
+            </div>
+        </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script type="scripts/main.js"></script>
 </body>
+
 </html>
