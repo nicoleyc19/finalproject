@@ -1,5 +1,5 @@
 body{
-	background-color: #DBF0FF;
+	background-color: #000000;
 }
 
 .clearfix:after {
@@ -25,7 +25,7 @@ body{
 	padding-top: 20px;
 	color: black;
 }
-.ui.nav-header{
+#mytheme .ui.nav-header{
 	margin-top: 15px;
 	float: right;
 }
@@ -49,11 +49,11 @@ body{
 	padding-right: 15px;
 }
 
-.ui.grid{
+.ui.grid.current-container{
 	display: flex;	
 	overflow: hidden;
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 50px auto;
 	flex-wrap: wrap;
 	box-sizing: border-box;
 }
@@ -62,10 +62,23 @@ body{
 	min-height: 300px;
 }
 
-.ui.current-header{
-	margin-left: 10%;
-	margin-top: 7.5%;
-	margin-bottom: 0%;
+#mytheme .header-style {
+	display: block;
+}
+
+.ui.card{
+	margin: 20px 20px;
+}
+
+.slide-wrapper {
+	width: 250px;
+	height: 250px;
+
+	box-sizing: border-box;
+
+	margin: 20px auto;
+
+	overflow: hidden;
 }
 
 
