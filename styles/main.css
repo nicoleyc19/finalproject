@@ -1,5 +1,9 @@
+header{
+	background-color: #F1F1F1;
+}
+
 body{
-	background-color: #000000;
+	
 }
 
 .clearfix:after {
@@ -59,9 +63,9 @@ body{
 	padding: 100px;
 }
 
-.ui.segment{
+/*.ui.segment{
 	min-height: 300px;
-}
+}*/
 
 #mytheme .header-style {
 	display: block;
@@ -75,16 +79,10 @@ body{
 	margin: 20px 20px;
 }
 
-.slide-wrapper {
-	width: 250px;
-	height: 250px;
-
-	box-sizing: border-box;
-
-	margin: 20px auto;
-
-	overflow: hidden;
+.ui.add-show{
+	margin-bottom: 20px;
 }
+
 
 
 
