@@ -63,10 +63,6 @@ body{
 	padding: 100px;
 }
 
-/*.ui.segment{
-	min-height: 300px;
-}*/
-
 #mytheme .header-style {
 	display: block;
 }
@@ -81,6 +77,10 @@ body{
 
 .ui.add-show{
 	margin-bottom: 20px;
+}
+
+.ui.card:last-child {
+    margin-bottom: 20px !important; 
 }
 
 
