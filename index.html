@@ -8,25 +8,28 @@
 </head>
 
 <body id="mytheme">
-    <header class="ui clearfix box fixed menu header-style">
-        <hi class="ui large header float--left box main-logo">Show Diary</hi>
-        <nav class="ui box right aligned clearfix nav-header">
-            <button class="ui button float-right"><a href="#">About</button>
-      <button class="ui button float-right">My Diary</button>
-        <div class="results"></div>
-      </div>
-      <div class="ui breadcrumb nav-link">
-        <a class="section">Sign Up</a>
-                <div class="divider"> / </div>
-                <a class="section">Log In</a>
-                </div>
-        </nav>
+<!-- Header -->
+    <header class="header-style">
+    <nav>
+    <div class="ui top fixed menu">
+        <div class="item">
+            <img class ="main-logo" src="assets/showdiary-1.png">
+        </div>
+        <a class="item nav-link" href="#">My Diary</a>
+        <a class="item nav-link" href="#">About</a>
+        <a class="item nav-link" href="#">Sign-in</a>
+        <a class="item nav-link" href="#">Sign-up</a>
+    </div>
+    </nav>
     </header>
-    <!-- Currently watching shows -->
+<!-- Currently watching shows -->
     <section class='current-container ui grid'>
         <div class="ui card">
             <div class="image">
                 <img src="assets/Bob's_Burgers_(season_6).png">
+            </div>
+            <div class="ui tiny progress blue">
+            <div class="bar"></div>
             </div>
             <div class="content">
                 <div class="header">Bob's Burgers</div>
@@ -38,41 +41,52 @@
                 <div class="ui blue button">
                     <i class="play icon"></i> Episode List
                 </div>
-                </div>
             </div>
         </div>
-        <div class="ui card">
-            <div class="image">
+        </div>
+<!-- Search Card -->
+        <div class="ui link card search-card">
+            <div class="image center">
                 <img src="assets/plus-circle.png">
-            </div>
-            <div class="content">
-               <div class="header"></div>
-                <div class="description">
-                    
-                </div>
             </div>
             <div class="ui two bottom attached buttons">
                 <div class="ui button">
                     <i class="add icon"></i> Add Show
                 </div>
-                </div>
             </div>
         </div>
+        </div>
+
     </section>
+ <!-- Search Menu -->
+    <section class='search-field ui small modal'>
+    <i class="close icon"></i>
+        <div class="ui raised text container segment">
+        <h2 class="ui header centered">Search Shows</h2>
+        <div class="ui search center">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search by Title">
+            <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+            <button class = "ui primary button search-button">Search</button>
+        </div>
+        </div>
+    </section>
+<!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyATLdiN5GBszP11ImWPGrNJjaod9KQZ4k0",
-        authDomain: "showdairy.firebaseapp.com",
-        databaseURL: "https://showdairy.firebaseio.com",
-        storageBucket: "",
-    };
-    firebase.initializeApp(config);
-    </script>
+        <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyATLdiN5GBszP11ImWPGrNJjaod9KQZ4k0",
+            authDomain: "showdairy.firebaseapp.com",
+            databaseURL: "https://showdairy.firebaseio.com",
+            storageBucket: "",
+        };
+        firebase.initializeApp(config);
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="script/main.js"></script>
 </body>
 
