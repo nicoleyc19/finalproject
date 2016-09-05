@@ -2,10 +2,6 @@ header{
 	background-color: #F1F1F1;
 }
 
-body{
-	
-}
-
 .clearfix:after {
 	content: "";
 	display: block;
@@ -23,18 +19,11 @@ body{
 .float--right{
 	float: right;
 }
-/*
-.ui.nav-link{
-	padding-right: 10px;
-	text-decoration: none;
-	color: black;
-}*/
 
 .ui.grid.current-container{
 	display: flex;	
 	overflow: hidden;
 	max-width: 1200px;
-	min-height: 300px;
 	margin: 0px auto;
 	flex-wrap: wrap;
 	box-sizing: border-box;

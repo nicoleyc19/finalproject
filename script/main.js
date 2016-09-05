@@ -3,11 +3,18 @@
 //         xhr.send();
 
 $('.search-card').click(function(){
-	$('.ui.modal')
+	$('.ui.search-field')
   	.modal('show', 'fade');
 })
 
+$('.episode-button').click(function(){
+	$('.episode-list')
+	.modal('show', 'fade');
+})
 
+$('.ui.dropdown')
+  .dropdown()
+;
 
 
 
