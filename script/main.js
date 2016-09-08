@@ -27,12 +27,12 @@ $('.search-button').click(function(){
 			console.log( data );
 			for (let i = 0; i < data.Search.length; i++) {
 				const div = $('<div/>');
-				div.html(`<div class = 'container segment ui'><img class = 'ui image rounded middle aligned' src="${data.Search[i].Poster}"> ${data.Search[ i ].Title} - ${data.Search[i].Year}</div>`);
+				div.html(`<div class = 'container segment ui'><img class = 'ui image rounded middle aligned' src="${data.Search[i].Poster}"> <b>${data.Search[ i ].Title}</b> - ${data.Search[i].Year}</div>`);
 				$('div.js-container').append(div);
 			}
 			if(typeof data.Search[i].Poster === undefined){
-
-			}
+				return "<img src ='../assets/index.png'>"
+			};
 
 		});
 
