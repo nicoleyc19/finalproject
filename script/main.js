@@ -22,7 +22,7 @@ $('.ui.dropdown')
 
 $('.search-button').click(function(){
 	let userInput = $('.js-search-input').val();
-	$.get('http://www.omdbapi.com/?s=' + userInput + '&y=&plot=short&r=json', false)
+	$.get('https://www.omdbapi.com/?s=' + userInput + '&y=&plot=short&r=json', false)
 		.done(function(data){
 			console.log( data );
 			for (let i = 0; i < data.Search.length; i++) {
