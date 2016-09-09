@@ -24,6 +24,7 @@ header{
 	display: flex;	
 	overflow: hidden;
 	max-width: 1200px;
+	min-height: 300px;
 	margin: 0px auto;
 	flex-wrap: wrap;
 	box-sizing: border-box;
@@ -57,6 +58,10 @@ header{
 
 .button.search-button{
 	margin-left: 10px;
+}
+
+.show-poster{
+
 }
 
 
