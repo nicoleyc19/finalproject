@@ -10,7 +10,6 @@ $('.ui.dropdown').dropdown();
 $('.search-button').click( getSearchResults );
 
 
-
 // <-------------------- FUNCTIONS DEFINED BELOW --------------------->
 
 
@@ -37,31 +36,43 @@ function getSearchResults() {
 			for( let i = 0; i < data.Search.length; i++ ) {
 				const $currentShowItem = generateShowRow( data.Search[i], i );
 				$container.append( $currentShowItem );
+
 				$('.js-choose-'+i).click(function(){
 					const title = data.Search[i].Title;
-					// grabAllEpisodes( title )
-					// 	.then(function(episodes){
-					// 		console.log( episodes );
-					// 	});
+					$.get('https://www.omdbapi.com/?t=' + title + '&y=&plot=short&r=json')
+						.done(function(data){
+							const $currentShowCard = generateShowCard( data, i );
 
-					// create a function: generateShowCard
-					// takes in ONE argument, show = data.Search[i]
-					// but this fucntion returns a CARD instead of an item row
+							$currentShowCard.insertBefore('.js-last-card');
+							$('.search-field').modal('hide');
+							toggleModal('.js-episode-button-'+i, '.episode-list' );
 
-				});
-			}
+							$('.js-episode-button-'+i).click(function() {
+								grabAllEpisodes( title )
+									.then(function(episodes){
+										
+										console.log( episodes, data );
+									});
+								
+							}); // js-episode-button
+
+						}); // done
+
+				}); //.js-choose
+				
+			} // for
 
 		});
 } // getSearchResults
 
 function generateShowCard(show, index){
-	const $div = $('div class="card"/>')
+	const $div = $('<div class="ui card show-watch" />')
 	if ( show.Poster === 'N/A'){
-		show.Poster === '../assets/index.png'
+		show.Poster = '../assets/index.png'
 	}
-	const htmlString =   `<div class="ui card show-watch">
+	const htmlString =   `
             <div class="image">
-                <img src="${show.Poster}">
+                <img class = "show-poster" src="${show.Poster}">
             </div>
             <div class="ui tiny progress blue">
                 <div class="bar"></div>
@@ -71,13 +82,15 @@ function generateShowCard(show, index){
                 <div class="description">${show.Plot}</div>
             </div>
             <div class="ui two bottom attached buttons">
-                <div class="ui blue button episode-button">
+                <div class="ui blue button js-episode-button-${index}">
                     <i class="play icon"></i> Episode List
                 </div>
             </div>
         </div>`;
 
         $div.html( htmlString );
+
+        return $div;
 
 }//generate
 
