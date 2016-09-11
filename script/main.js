@@ -1,15 +1,17 @@
 // <-------------------- Website implementation --------------------->
 // get the modals init
-toggleModal('.search-card', '.ui.search-field');
-toggleModal('.episode-button', '.episode-list' );
+// toggleModal('.search-card', '.ui.search-field');
+// toggleModal('.episode-button', '.episode-list' );
 
 // init the dropdowns
-$('.ui.accordion').accordion();
+// $('.ui.accordion').accordion('close others');
 
 // on search, hit OMDB for search results
 $('.search-button').click( getSearchResults );
 
-
+$('.js-search').click(function() {
+	$('.js-search-content').slideDown();
+});
 // <-------------------- FUNCTIONS DEFINED BELOW --------------------->
 
 
@@ -43,25 +45,33 @@ function getSearchResults() {
 						.done(function(data){
 							const $currentShowCard = generateShowCard( data, i );
 
-							$currentShowCard.insertBefore('.js-last-card');
-							$('.search-field').modal('hide');
+							$currentShowCard.insertAfter('.js-last-card');
+							// $('.search-field').modal('hide');
+							$('.js-search-content').slideUp(500);
 
 							$('.js-episode-button-'+i).click(function() {
 								$('.js-episode-list').html('');
-								$('.js-episode-list').modal('show', 'fade')
+								$('.js-episode-list').slideDown(500)
 								
 								grabAllEpisodes( title )
 									.then(function(episodes){
 										
-										console.log( episodes, data );
+										
+										let total = 0;
 										for(let i = 0; i < episodes.length; i ++){
-											const $seasonList = generateSeasons(episodes[ i ]);
+											total += episodes[i].Episodes.length;
+											console.info( episodes[i])
+											const $seasonList = generateSeasons(episodes[ i ], i);
 											$('.js-episode-list').append($seasonList);
-										
 										}
-										
 
-									});
+										console.info( total )
+
+										$currentShowCard.attr('data-total', total);
+										$currentShowCard.attr('data-current', 0);
+
+										
+									});//grab all episodes
 								
 							}); // js-episode-button
 
@@ -75,7 +85,7 @@ function getSearchResults() {
 } // getSearchResults
 
 function generateShowCard(show, index){
-	const $div = $('<div class="ui card show-watch" />')
+	const $div = $('<div class="ui segment show-watch mobile-episodes" />')
 	if ( show.Poster === 'N/A'){
 		show.Poster = '../assets/index.png'
 	}
@@ -83,18 +93,23 @@ function generateShowCard(show, index){
             <div class="image">
                 <img class = "show-poster" src="${show.Poster}">
             </div>
-            <div class="ui tiny progress blue">
-                <div class="bar"></div>
-            </div>
             <div class="content">
-                <div class="header">${show.Title}</div>
-                <div class="description">${show.Plot}</div>
+	           
+	            <div class="content">
+	                <div class="header"><b>${show.Title}</b></div>
+	                <div class="description">${show.Plot}</div>
+	            </div>
+	            
             </div>
+             <div class="ui tiny progress blue">
+	                <div class="bar js-progress-bar episode-progress"></div>
+	            </div>
+	            <div class="js-episode-list ui"></div>   
             <div class="ui two bottom attached buttons">
-                <div class="ui blue button js-episode-button-${index}">
-                    <i class="play icon"></i> Episode List
-                </div>
-            </div>
+	                <div class="ui blue button js-episode-button-${index}">
+	                    <i class="play icon"></i> Episode List
+	                </div>
+	            </div>
         </div>`;
 
         $div.html( htmlString );
@@ -153,31 +168,70 @@ function grabAllEpisodes( title ) {
 } // grabAllEpisodes
 
 function generateSeasons(season, index){
+	$('.ui.accordion').accordion();
 	console.log( season.Episodes )
-
-	for(let i = 0; i < season.Episodes.length; i++){
-		console.log(season.Episodes[i]);
-	}
-
 	const $div = $('<div class="ui styled fluid accordion" />')
-	const htmlStr1 = `
+	let htmlStr1 = `
           <div class="title">
             <i class="dropdown icon"></i>
-            ${season.Season}
-            </div>
-          <div class="content">
-            <p class="transition hidden js-allEpisodes">${season.Episode} - ${season.Title}</p>
+            Season ${season.Season}
           </div>
+          <div class="content">
+          	<div class="transition hidden">
 		  `
+		for(let i = 0; i < season.Episodes.length; i++){
+			const htmlStr2 = `
+			<div class="ui segment segment-pointer js-episode-${index}-${i} episode-listing">	
+            ${season.Episodes[i].Episode} - ${season.Episodes[i].Title}
+            </div>
+          
+	`
+		$('body').on('click', `.js-episode-${index}-${i}`, function() {
+
+			if ( $( this ).attr('data-clicked-on') === "true" ) {
+				return;
+			}
+
+
+			// find the mobile-episodes parent
+			const $parent = $( this ).parents('.mobile-episodes');
+
+			// first get data-current
+			const current = $parent.attr('data-current');
+			const currentVal = parseInt( current, 10 );
+			// add one to data-current
+			const newVal = currentVal + 1;
+			// update data-current to be new value
+			$parent.attr('data-current', newVal);
+
+			updateProgress( $parent );
+
+			$( this ).attr('data-clicked-on', 'true')
+		});
+
+		htmlStr1 += htmlStr2;
+	}
+
+	htmlStr1 += `</div>
+	</div>`;
+
 		  $div.html( htmlStr1 );
 
 		  return $div;
 }//generateSeasons
 
-function generateEpisodes(episodes, index){
-	for( let i = 0; i < episodes.Episode.length; i++){
-		console.log(episodes.Episode[i]);
-	}
+
+function updateProgress( $episode ) {
+	// get the data-current
+	const current = $episode.attr('data-current');
+	const currentVal = parseInt( current, 10) ;
+	// get the data-total
+	const total = $episode.attr('data-total');
+	const totalVal = parseInt( total, 10 );
+
+	const percentVal = (currentVal / totalVal) * 100;
+
+	$episode.find('.js-progress-bar').css('width', percentVal + '%');
 }
 
 

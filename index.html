@@ -24,6 +24,7 @@
     </header>
     <!-- Currently watching shows -->
     <section class='current-container ui grid'>
+        <div class="column">
         <!-- <div class="ui card show-watch">
             <div class="image">
                 <img src="assets/Bob's_Burgers_(season_6).png">
@@ -45,27 +46,42 @@
         </div>
  -->
         <!-- Search Card -->
-        <div class="ui link card search-card js-last-card">
-            <div class="image center">
-                <img src="assets/plus-circle.png">
-            </div>
+        <div class="ui link segment search-card js-last-card">
+             <div class="ui top attached label white">
+                 <div class="image center small-image">
+                    <img src="assets/plus-circle.png">
+                </div>
+                <span class="label-desc">Search for new show</span>
+             </div>
+            
             <div class="ui description header centered">
-                Click here to add show
+                
+            </div>
+            <div class="ui content js-search-content" style="display: none;">  
+                    
+                <div class="ui fluid action input">
+                    <input class="prompt js-search-input" type="text" placeholder="Search by Title">
+                    <button class="ui primary button search-button">Search</button>
+                </div>
+
+                <div class="js-container ui items mobile-items">
+                </div>
+
             </div>
             <div class="ui two bottom attached buttons">
-                <div class="ui button">
+                <div class="ui button js-search">
                     <i class="add icon"></i> Add Show
                 </div>
             </div>
         </div>
         </div>
+        </div>
     </section>
     <!-- Episode Selection -->
-    <div class="js-episode-list ui small modal">
-        <i class="close icon"></i>
-    </div>    
+   <!--  <div class="js-episode-list ui">
+    </div>     -->
     <!-- Search Menu -->
-    <section class='search-field ui small modal'>
+    <!-- <section class='search-field ui small modal'>
         <i class="close icon"></i>
         <div class="ui raised text container segment">
             <h2 class="ui header centered">Search Shows</h2>
@@ -80,7 +96,7 @@
             <div class="js-container ui items">
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
