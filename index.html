@@ -22,9 +22,8 @@
             </div>
         </nav>
     </header>
-    
-<!-- Currently watching shows -->
- <section class='current-container ui grid'>
+    <!-- Currently watching shows -->
+    <section class='current-container ui grid'>
         <!-- <div class="ui card show-watch">
             <div class="image">
                 <img src="assets/Bob's_Burgers_(season_6).png">
@@ -45,14 +44,14 @@
             </div>
         </div>
  -->
-<!-- Search Card -->
+        <!-- Search Card -->
         <div class="ui link card search-card js-last-card">
             <div class="image center">
                 <img src="assets/plus-circle.png">
             </div>
-             <div class="ui description header centered">
-                   Click here to add show
-                </div>
+            <div class="ui description header centered">
+                Click here to add show
+            </div>
             <div class="ui two bottom attached buttons">
                 <div class="ui button">
                     <i class="add icon"></i> Add Show
@@ -61,23 +60,11 @@
         </div>
         </div>
     </section>
-<!-- Episode Selection -->
-    <section class="episode-list ui small modal">
-    <i class="close icon"></i>
-        <div class="ui text raised container segment js-episodes">
-            <h2 class="ui header centered">Choose Episode</h2>
-            <div class="ui fluid selection dropdown">
-                <i class="dropdown icon"></i>
-                <div class="text">Episode List</div>
-                <div class="menu">
-                    <div class="item">A</div>
-                    <div class="item">B</div>
-                    <div class="item">C</div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- Search Menu -->
+    <!-- Episode Selection -->
+    <div class="js-episode-list ui small modal">
+        <i class="close icon"></i>
+    </div>    
+    <!-- Search Menu -->
     <section class='search-field ui small modal'>
         <i class="close icon"></i>
         <div class="ui raised text container segment">
@@ -91,11 +78,10 @@
                 <button class="ui primary button search-button">Search</button>
             </div>
             <div class="js-container ui items">
-                
             </div>
         </div>
     </section>
-<!-- Scripts -->
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script>
