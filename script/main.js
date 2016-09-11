@@ -4,7 +4,7 @@ toggleModal('.search-card', '.ui.search-field');
 toggleModal('.episode-button', '.episode-list' );
 
 // init the dropdowns
-$('.ui.dropdown').dropdown();
+$('.ui.accordion').accordion();
 
 // on search, hit OMDB for search results
 $('.search-button').click( getSearchResults );
@@ -45,13 +45,22 @@ function getSearchResults() {
 
 							$currentShowCard.insertBefore('.js-last-card');
 							$('.search-field').modal('hide');
-							toggleModal('.js-episode-button-'+i, '.episode-list' );
 
 							$('.js-episode-button-'+i).click(function() {
+								$('.js-episode-list').html('');
+								$('.js-episode-list').modal('show', 'fade')
+								
 								grabAllEpisodes( title )
 									.then(function(episodes){
 										
 										console.log( episodes, data );
+										for(let i = 0; i < episodes.length; i ++){
+											const $seasonList = generateSeasons(episodes[ i ]);
+											$('.js-episode-list').append($seasonList);
+										
+										}
+										
+
 									});
 								
 							}); // js-episode-button
@@ -59,7 +68,7 @@ function getSearchResults() {
 						}); // done
 
 				}); //.js-choose
-				
+
 			} // for
 
 		});
@@ -92,7 +101,7 @@ function generateShowCard(show, index){
 
         return $div;
 
-}//generate
+}//generateShowCard
 
 function generateShowRow( show, index ) {
 	const $div = $('<div class="item"/>');
@@ -125,7 +134,7 @@ function grabAllEpisodes( title ) {
 				const totalSeasons = parseInt( showData.totalSeasons, 10 );
 				const url = 'https://www.omdbapi.com/?t=' + title + '&y=&plot=full&r=json&season=';
 				const getRequests = [];
-				console.log( totalSeasons )
+				// console.log( totalSeasons )
 				for( let i = 1; i < totalSeasons + 1; i++ ) {
 					const currentUrl = url + i;
 
@@ -142,6 +151,38 @@ function grabAllEpisodes( title ) {
 			})
 	});
 } // grabAllEpisodes
+
+function generateSeasons(season, index){
+	console.log( season.Episodes )
+
+	for(let i = 0; i < season.Episodes.length; i++){
+		console.log(season.Episodes[i]);
+	}
+
+	const $div = $('<div class="ui styled fluid accordion" />')
+	const htmlStr1 = `
+          <div class="title">
+            <i class="dropdown icon"></i>
+            ${season.Season}
+            </div>
+          <div class="content">
+            <p class="transition hidden js-allEpisodes">${season.Episode} - ${season.Title}</p>
+          </div>
+		  `
+		  $div.html( htmlStr1 );
+
+		  return $div;
+}//generateSeasons
+
+function generateEpisodes(episodes, index){
+	for( let i = 0; i < episodes.Episode.length; i++){
+		console.log(episodes.Episode[i]);
+	}
+}
+
+
+
+
 
 
 
